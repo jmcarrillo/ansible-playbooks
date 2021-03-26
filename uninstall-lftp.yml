@@ -1,10 +1,10 @@
 ---
-- name : Instalar lftp usando apt
+- name : Desinstalar lftp usando apt
   hosts : all
   become: true
   tasks :
      - name : Instalar la última versión de lftp
        apt :
         name: lftp
-        state: latest
+        state: absent
         update_cache: True
