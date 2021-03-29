@@ -1,8 +1,17 @@
 ---
-- name : Agrega repo chrome
+- name : Agrega key repo chrome
   hosts : all
   become: true
   tasks :
+   - apt_key:
+     url: "{{ item }}"
+     state: present
+     with_items:
+       -  https://dl-ssl.google.com/linux/linux_signing_key.pub
+
+
+
+
      - name: Add specified repository into sources list using specified filename
        ansible.builtin.apt_repository:
          repo: deb http://dl.google.com/linux/chrome/deb/ stable main

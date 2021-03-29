@@ -1,11 +1,6 @@
 ---
-- name : Añadir repositorio de google chrome
-  hosts : all
-  become: true
-  tasks :
-     - name : upgrade zombis
-       apt repository:
-        repo: deb http://dl.google.com/linux/chrome/deb/ stable main
-        state: present
-        filename: 'google-chrome'
-        update_cache: True
+- name: Add specified repository into sources list using specified filename
+  ansible.builtin.apt_repository:
+    repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
