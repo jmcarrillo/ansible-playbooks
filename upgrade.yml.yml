@@ -1,0 +1,8 @@
+---
+- name : upgrade apt
+  hosts : all
+  become: true
+  tasks :
+     - name : upgrade zombis
+       apt :
+        upgrade: dist
